@@ -3,99 +3,69 @@
       ref="form"
       v-model="valid"
       lazy-validation
+      action="login" method="post"
     >
-      <v-text-field
-        v-model="name"
-        :counter="10"
-        :rules="nameRules"
-        label="Name"
-        required
-      ></v-text-field>
+
+      <h3>Se connecter</h3>
+      <v-text-field type="hidden" name="_token" :value="csrf"></v-text-field>
   
       <v-text-field
         v-model="email"
         :rules="emailRules"
         label="E-mail"
+        name="email"
+        required
+      ></v-text-field>
+
+      <v-text-field
+        v-model="password"
+        label="Password"
+        name="password"
+        :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+        :type="show1 ? 'text' : 'password'"
+        @click:append="show1 = !show1"
         required
       ></v-text-field>
   
-      <v-select
-        v-model="select"
-        :items="items"
-        :rules="[v => !!v || 'Item is required']"
-        label="Item"
-        required
-      ></v-select>
-  
-      <v-checkbox
-        v-model="checkbox"
-        :rules="[v => !!v || 'You must agree to continue!']"
-        label="Do you agree?"
-        required
-      ></v-checkbox>
-  
       <v-btn
-        :disabled="!valid"
         color="success"
         class="mr-4"
+        type="submit"
         @click="validate"
       >
         Validate
       </v-btn>
   
-      <v-btn
-        color="error"
-        class="mr-4"
-        @click="reset"
-      >
-        Reset Form
-      </v-btn>
+
   
-      <v-btn
-        color="warning"
-        @click="resetValidation"
-      >
-        Reset Validation
-      </v-btn>
+
     </v-form>
 </template>
 <script>
 export default {
+  name: "Login",
   data: () => ({
+    show1: false,
     valid: true,
-    name: '',
-    nameRules: [
-      v => !!v || 'Name is required',
-      v => (v && v.length <= 10) || 'Name must be less than 10 characters',
-    ],
     email: '',
     emailRules: [
       v => !!v || 'E-mail is required',
       v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
     ],
-    select: null,
-    items: [
-      'Item 1',
-      'Item 2',
-      'Item 3',
-      'Item 4',
-    ],
-    checkbox: false,
+    csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
   }),
 
   methods: {
     validate () {
       this.$refs.form.validate()
     },
-    reset () {
-      this.$refs.form.reset()
-    },
-    resetValidation () {
-      this.$refs.form.resetValidation()
-    },
+
+
   },}
 </script>
 <style lang="sass">
-  .v-container
-    width: 70%
+  .v-form
+    // margin-top: 20vh
+    margin: 20vh auto
+    width: 60%
 </style>

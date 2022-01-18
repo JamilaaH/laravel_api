@@ -2,26 +2,29 @@
     <div>
         <v-main>
             <v-container>
-                
-                <!-- {{shop.produits}} -->
-                <!-- {{produits}} -->
+                  <h2>{{shop.nom}}</h2>
                 <v-row>
-                    <v-col v-for="produit, index in shop.produits" :key="index" cols=12 sm=4>
-                      <v-card >
+                    <v-col v-for="produit, index in prod" :key="index" cols=12 sm=4>
+                      <v-card  >
                         <v-img
                             :src="'../storage/img/'+produit.photo"
-                            height="100%"     ></v-img>
+                            height="200px"></v-img>
 
                           <v-card-title>
                             {{produit.nom}}
                           </v-card-title>      
                           <v-card-actions>
-                          <v-btn
-                            color="green lighten-2"
-                            text
-                          >
-                            Acheter
-                          </v-btn>
+                            <form :action="'/achat/'+produit.id" method="POST">
+                                <input type="hidden" name="_token" :value="csrf"/>
+                                <v-btn
+                                  color="green lighten-2"
+                                  text
+                                  type="
+                                  submit"
+                                >
+                                  Acheter
+                                </v-btn>                            
+                            </form>
                     
                           <v-spacer></v-spacer>
                     
@@ -29,7 +32,7 @@
                             icon
                             @click="show = !show"
                           >
-                            <v-icon> v {{ show ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
+                            <v-icon>  {{ show ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
                           </v-btn>
                         </v-card-actions>
                     
@@ -38,7 +41,7 @@
                             <v-divider></v-divider>
                     
                             <v-card-text>
-                              I'm a thing. But, like most politicians, he promised more than he could deliver. You won't have time for sleeping, soldier, not with all the bed making you'll be doing. Then we'll go with that data file! Hey, you add a one and two zeros to that or we walk! You're going to do his laundry? I've got to find a way to escape.
+                              {{produit.description}}
                             </v-card-text>
                           </div>
                         </v-expand-transition>
@@ -61,7 +64,14 @@ export default {
   },
   data() {
     return {
-      show: false
+      show: false,
+      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+    }
+  },
+  computed: {
+    prod() {
+    
+      return this.shop.produits.filter(el=>el.stock > 0) 
     }
   },
 };

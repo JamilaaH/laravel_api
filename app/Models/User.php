@@ -44,13 +44,18 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function boutiques()
+    public function boutique()
     {
-        return $this->hasMany(Boutique::class);
+        return $this->hasOne(Boutique::class);
     }
 
     public function paniers()
     {
         return $this->hasMany(Panier::class);
+    }
+
+    public function produits()
+    {
+        return $this->belongsToMany(Produit::class, 'paniers', 'user_id');
     }
 }

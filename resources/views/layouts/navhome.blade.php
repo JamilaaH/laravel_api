@@ -1,32 +1,23 @@
-{{-- <v-app-bar
-absolute
-color="#6A76AB"
-dark
-shrink-on-scroll
-prominent
-fade-img-on-scroll
-scroll-target="#scrolling-techniques-3"
->
-<template >
-  <v-img
-    gradient="to top right, rgba(100,115,201,.7), rgba(25,32,72,.7)"
-  ></v-img>
-</template>
+<v-app-bar app>
+  <v-app-bar-title>MoShop</v-app-bar-title>
 
-<v-app-bar-nav-icon></v-app-bar-nav-icon>
+  <v-spacer></v-spacer>
 
-<v-app-bar-title>MoShop</v-app-bar-title>
+  @guest
+    <v-btn href="/login" class="mr-3" text>Se connecter</v-btn>  
+  @endguest
+  @auth
+    <v-btn href="/dashboard" class="mr-3" text>Dashboard</v-btn>  
+  @endauth
 
-<v-spacer></v-spacer>
+  <v-divider inset vertical></v-divider>
 
-<template v-slot:extension>
-  <v-tabs align-with-title>
-    <v-tab>
-        Shop
-    </v-tab>
-    <v-tab>Panier</v-tab>
-    <v-tab href="{{route('login')}}">Se connecter</v-tab>
-  </v-tabs>
-</template>
-</v-app-bar> --}}
-<navbar></navbar>
+  <v-btn
+    class="mr-4 ml-5"
+    color="primary"
+    plain
+  >
+    <v-icon left icon="mdi mdi-handshake-outline"></v-icon>
+
+  </v-btn>
+</v-app-bar>

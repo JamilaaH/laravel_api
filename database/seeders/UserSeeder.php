@@ -19,16 +19,8 @@ class UserSeeder extends Seeder
             [
                 'nom'=> 'Hmn',
                 'prenom'=> 'Jamila',
-                'photo'=> 'avatar.jpg',
+                'photo'=> 'avatar.png',
                 'email'=> 'jamila@gmail.com',
-                'password'=> Hash::make('testtest'),
-
-            ],
-            [
-                'nom'=> 'Ach',
-                'prenom'=> 'acheteur',
-                'photo'=> 'avatar.jpg',
-                'email'=> 'acheteur@gmail.com',
                 'password'=> Hash::make('testtest'),
 
             ],
@@ -40,6 +32,15 @@ class UserSeeder extends Seeder
                 'password'=> Hash::make('testtest'),
 
             ],
+            [
+                'nom'=> 'Ach',
+                'prenom'=> 'acheteur',
+                'photo'=> 'avatar.jpg',
+                'email'=> 'acheteur@gmail.com',
+                'password'=> Hash::make('testtest'),
+
+            ],
+
         ]);
     }
 }

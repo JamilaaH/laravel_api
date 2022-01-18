@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Boutique;
+use App\Models\Panier;
+use App\Models\Produit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ShopController extends Controller
 {
@@ -12,5 +15,29 @@ class ShopController extends Controller
         $shop = Boutique::find(1)->with('produits')->first();
         // dd($shop);
         return view('home', compact('shop'));
+    }
+
+    public function monshop()
+    {
+        $user = Auth::user();
+        $mesProduits = Produit::where('boutique_id', $user->boutique->id)->get();
+        return view('back.monShop', compact('mesProduits')); 
+        // return dd($user->boutique);
+    }
+
+    public function panier()
+    {   
+        $user = Auth::user();
+        $panier = $user->produits;
+        $total = $panier->sum('prix');
+        // $produits= $panier->produit;
+        return view('back.panier', compact( 'panier', 'total'));
+        // return dd($panier->sum('prix'));
+    }
+
+    public function commandes()
+    {
+        // $user = Auth::user();
+        return view('back.commandes'); 
     }
 }

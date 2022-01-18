@@ -21,9 +21,12 @@ import vuetify from './vuetify'
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('navbar', require('./components/Navbar.vue').default);
 Vue.component('login', require('./components/Login.vue').default);
-Vue.component('shop', require('./pages/Shop.vue').default)
+Vue.component('shop', require('./pages/Shop.vue').default);
+Vue.component('dashboard', require('./components/Dashboard.vue').default);
+Vue.component('mon-shop', require('./pages/MonShop.vue').default);
+Vue.component('panier', require('./pages/Panier.vue').default);
+Vue.component('commandes', require('./pages/Commande.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
