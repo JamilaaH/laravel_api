@@ -58,4 +58,8 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Produit::class, 'paniers', 'user_id');
     }
+    public function commandes()
+    {
+        return $this->hasMany(Commande::class);
+    }
 }

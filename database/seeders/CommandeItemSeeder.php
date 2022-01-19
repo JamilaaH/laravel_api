@@ -3,9 +3,8 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
-class CommandeSeeder extends Seeder
+class CommandeItemSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,5 +13,6 @@ class CommandeSeeder extends Seeder
      */
     public function run()
     {
+        //
     }
 }

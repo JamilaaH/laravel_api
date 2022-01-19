@@ -2,6 +2,10 @@
 
 @section('main')
     <v-main>
-        <commandes :commandes="{{$commandes}}"></commandes>
+        <mes-commandes :commande ="{{$commandes}}"></mes-commandes>
     </v-main>
-@endsection
+    {{-- @dump($commandes) --}}
+    {{-- @foreach ($commandes as $commande)
+        @dump($commande->produits)
+    @endforeach--}}
+@endsection 

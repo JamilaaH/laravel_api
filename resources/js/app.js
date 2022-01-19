@@ -26,7 +26,8 @@ Vue.component('shop', require('./pages/Shop.vue').default);
 Vue.component('dashboard', require('./components/Dashboard.vue').default);
 Vue.component('mon-shop', require('./pages/MonShop.vue').default);
 Vue.component('panier', require('./pages/Panier.vue').default);
-Vue.component('commandes', require('./pages/Commande.vue').default);
+Vue.component('mes-commandes', require('./pages/Commande.vue').default);
+Vue.component('add-product', require('./pages/AddProduct.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

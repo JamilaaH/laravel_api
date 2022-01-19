@@ -15,8 +15,8 @@ class CreateCommandesTable extends Migration
     {
         Schema::create('commandes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('panier_id')->constrained();
             $table->decimal('total');
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }

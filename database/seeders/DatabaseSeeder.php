@@ -19,7 +19,6 @@ class DatabaseSeeder extends Seeder
             BoutiqueSeeder::class,
             ProduitSeeder::class,
             PanierSeeder::class,
-            CommandeSeeder::class
         ]);
     }
 }

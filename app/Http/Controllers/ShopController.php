@@ -37,7 +37,11 @@ class ShopController extends Controller
 
     public function commandes()
     {
-        // $user = Auth::user();
-        return view('back.commandes'); 
+        $user = Auth::user();
+        
+        $commandes = $user->commandes;
+
+        // return dd($commandes);
+        return view('back.commandes', compact('commandes')); 
     }
 }

@@ -1,6 +1,10 @@
 <template>
     <v-container>
-        <h2>mon Shop</h2>
+        <div class="d-flex justify-space-between mb-2">
+
+            <h2>mon Shop</h2> 
+            <v-btn class="indigo lighten-1" dark href="/addproduit">add</v-btn>
+        </div>
         <v-row>
             <v-col v-for="produit, index in produits" :key="index" cols=12 sm=4>
                 <v-card >

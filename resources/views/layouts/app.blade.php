@@ -21,7 +21,6 @@
             <v-app app>
                 @include('layouts.navigation')
                 @yield('main')
-
             </v-app>
         </div>
     </body>
