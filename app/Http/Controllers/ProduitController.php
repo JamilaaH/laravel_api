@@ -16,7 +16,7 @@ class ProduitController extends Controller
 
     public function store(Request $request)
     {
-        $add = $request->validate([
+        $product = $request->validate([
             "nom"=>'required|string',
             "description"=>'required',
             "prix"=>'required|integer',
@@ -26,11 +26,11 @@ class ProduitController extends Controller
         // $produit = new Produit();
         $user = Auth::user();
         $produit = Produit::create([
-            'nom' => $add['nom'],
-            'description'=> $add['description'],
-            'photo'=> $add['photo']->hashName(),
-            'prix' => $add['prix'],
-            'stock' => $add['stock'],
+            'nom' => $product['nom'],
+            'description'=> $product['description'],
+            'photo'=> $product['photo']->hashName(),
+            'prix' => $product['prix'],
+            'stock' => $product['stock'],
             'boutique_id'=> $user->boutique->id,
     
         ]);
