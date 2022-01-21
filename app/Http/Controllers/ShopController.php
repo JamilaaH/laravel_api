@@ -14,14 +14,20 @@ class ShopController extends Controller
     {
         $shop = Boutique::find(1)->with('produits')->first();
         // dd($shop);
-        return view('home', compact('shop'));
+        return response()->json([
+            "message"=>"succès",
+            "data"=>$shop,
+        ]);
     }
 
     public function monshop()
     {
         $user = Auth::user();
         $mesProduits = Produit::where('boutique_id', $user->boutique->id)->get();
-        return view('back.monShop', compact('mesProduits')); 
+        return response()->json([
+            'message'=>'shop affiché avec succès',
+            'data' => $mesProduits,
+        ]); 
         // return dd($user->boutique);
     }
 

@@ -21,15 +21,19 @@ class ProduitSeeder extends Seeder
                 "photo"=> "barbecue_style.jpg", 
                 "prix" => 1.59,
                 "boutique_id" => 1,
-                "stock"=>1
+                "stock"=>1,
+                'created_at'=>now()
+
             ],
             [
-                'nom'=>'Dippers Guacammole',
+                'nom'=>'Dippers Guacamole',
                 'description'=>"Doritos dippers guacamole. Maïs, huiles végétales (tournesol, colza, maïs, en proportion variable), base aromatisante barbecue [arôme (contient de la poudre d'oignon et de paprika), sucre, correcteurs d'acidité (diacétate de sodium, acide citrique), arôme de fumée], sel.",
                 "photo"=> "dippers_guacamole.jpg", 
                 "prix" => 1.79,
                 "boutique_id" => 1,
                 'stock'=>1,
+                'created_at'=>now()
+
             ],
             [
                 'nom'=>'Doritos Dippers Naturel',
@@ -38,6 +42,8 @@ class ProduitSeeder extends Seeder
                 "prix" => 1.39,
                 "boutique_id" => 1,
                 "stock"=>1,
+                'created_at'=>now()
+
             ],
             [
                 'nom'=>'Doritos Flamin hot',
@@ -46,6 +52,8 @@ class ProduitSeeder extends Seeder
                 "prix" => 1.59,
                 "boutique_id" => 1,
                 "stock"=>1,
+                'created_at'=>now()
+
             ],
             [
                 'nom'=>'Doritos Nachos cheese',
@@ -54,6 +62,8 @@ class ProduitSeeder extends Seeder
                 "prix" => 1.29,
                 "boutique_id" => 2,
                 'stock'=>1,
+                'created_at'=>now()
+
             ],
             [
                 'nom'=>'Doritos Pur paprika',
@@ -62,6 +72,8 @@ class ProduitSeeder extends Seeder
                 "prix" => 1.59,
                 "boutique_id" => 2,
                 'stock'=>1,
+                'created_at'=>now()
+
             ],
             [
                 'nom'=>'Doritos Sweet chili',
@@ -70,6 +82,8 @@ class ProduitSeeder extends Seeder
                 "prix" => 1.19,
                 "boutique_id" => 2,
                 'stock'=>1,
+                'created_at'=>now()
+
             ],
         ]);
     }

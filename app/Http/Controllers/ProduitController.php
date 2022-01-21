@@ -16,17 +16,28 @@ class ProduitController extends Controller
 
     public function store(Request $request)
     {
-        $produit = new Produit();
+        $add = $request->validate([
+            "nom"=>'required|string',
+            "description"=>'required',
+            "prix"=>'required|integer',
+            "photo"=>'required|file',
+            "stock"=>'required|integer',
+        ]);
+        // $produit = new Produit();
         $user = Auth::user();
-        $produit->nom = $request->nom;
-        $produit->description = $request->description;
-        $produit->photo =$request->file('photo')->hashName();
-        $produit->prix = $request->prix;
-        $produit->boutique_id = $user->boutique->id;
-        $produit->stock = $request->stock;
-        $produit->save();
-        Storage::put('public/img/', $request->file('photo'));
-        return redirect()->route('monshop.index');
-        
+        $produit = Produit::create([
+            'nom' => $add['nom'],
+            'description'=> $add['description'],
+            'photo'=> $add['photo']->hashName(),
+            'prix' => $add['prix'],
+            'stock' => $add['stock'],
+            'boutique_id'=> $user->boutique->id,
+    
+        ]);
+        Storage::put('public/', $request->file('photo'));
+        return response()->json([
+            "data"=>$produit,
+            "message"=>"produit ajouté avec succès"
+        ]);
     }
 }

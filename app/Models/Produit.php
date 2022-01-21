@@ -9,6 +9,15 @@ class Produit extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'nom',
+        'description',
+        'photo',
+        'prix',
+        'stock',
+        'boutique_id',
+    ];
+
     public function boutique()
     {
         return $this->belongsTo(Boutique::class);

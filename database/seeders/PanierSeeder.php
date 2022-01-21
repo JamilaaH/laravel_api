@@ -18,10 +18,14 @@ class PanierSeeder extends Seeder
             [
                 "user_id" => 1,
                 "produit_id"=> 7,
+                'created_at'=>now()
+
             ],
             [
                 "user_id" => 1,
                 "produit_id"=> 5,
+                'created_at'=>now()
+
             ],
         ]);
     }
